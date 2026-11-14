@@ -26,8 +26,8 @@ void loop() {
   redBright = map(Xval, 0, 1023, 0, 255);
   blueBright = map(Yval, 0, 1023, 0, 255);
 
-  digitalWrite(blueLED, blueBright);
-  digitalWrite(redLED, redBright);
+  analogWrite(blueLED, blueBright);
+  analogWrite(redLED, redBright);
 
   Serial.print("Blue value = ");
   Serial.println(blueBright);
