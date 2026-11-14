@@ -1,0 +1,41 @@
+
+#define redLED 9
+#define blueLED 10
+
+const int Yin = A0;
+const int Xin = A1;
+
+int Xval = 0;
+int Yval = 0;
+
+int redBright = 0;
+int blueBright = 0;
+
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Xval = analogRead(Xin);
+  Yval = analogRead(Yin);
+
+  redBright = map(Xval, 0, 1023, 0, 255);
+  blueBright = map(Yval, 0, 1023, 0, 255);
+
+  digitalWrite(blueLED, blueBright);
+  digitalWrite(redLED, redBright);
+
+  Serial.print("Blue value = ");
+  Serial.println(blueBright);
+
+  Serial.print("Red value = ");
+  Serial.println(redBright);
+
+
+  delay(2);
+
+}
